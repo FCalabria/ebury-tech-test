@@ -1,10 +1,17 @@
 <script>
-	export let name;
+	import { rates, loadRates } from './store/rates'
+	import { onMount } from 'svelte';
+
+	onMount(loadRates)
+	let ratesValue
+	const unsubscribe = rates.subscribe(value => {
+		ratesValue = value;
+	});
+	$: printableRates = JSON.stringify(ratesValue)
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<p>{printableRates}</p>
 </main>
 
 <style>
