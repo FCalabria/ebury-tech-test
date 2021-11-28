@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store';
+import { readable } from 'svelte/store';
 import urls from '../business/urls';
 import { availableCurrencies } from '../business/currencies';
 
@@ -11,21 +11,43 @@ function ratesFactory (valueGenerator) {
   }, {})
 }
 
-const rates = writable(ratesFactory(() => 0))
-const ratesError = writable(null)
+const REFRESH_INTERVAL = 1000 * 60 // one minute
 
-async function loadRates () {
+const ratesResult = readable({
+  values: {},
+  error: false,
+  loading: true
+}, (set) => {
+  loadRates(set)
+  const interval = setInterval(() => {
+    console.log('here')
+    loadRates(set)
+	}, REFRESH_INTERVAL);
+
+	return function stop() {
+		clearInterval(interval);
+	};
+})
+
+async function loadRates (set) {
   try {
     const result = await fetch(urls.GET_RATES)
       .then(response => response.json())
     if (!result.success) {
       throw new Error('Network response was not OK');
     }
-    rates.set(ratesFactory((key) => result.rates[key]))
+    set({
+      values: ratesFactory((key) => result.rates[key]),
+      error: false,
+      loading: false
+    })
   } catch (error) {
-    rates.set({})
-    ratesError.set(error)
+    set({
+      values: {},
+      error: true,
+      loading: false
+    })
   }
 }
 
-export { rates, ratesError, loadRates }
+export { ratesResult }
