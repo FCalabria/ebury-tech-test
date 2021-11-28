@@ -18,6 +18,23 @@
 .etc-currency-converter__content>*:not(:last-child) {
   margin-right: var(--etc-spacing-md);
 }
+.etc-currency-converter__error-msg>p {
+  margin: 0;
+}
+.etc-currency-converter__error-msg>*:first-child {
+  display: inline-block;
+}
+.etc-currency-converter__error-msg:before {
+  content: "!";
+  font-weight: bold;
+  background-color: var(--etc-color-contrast);
+  margin-right: var(--etc-spacing-sm);
+  width: 1.2rem;
+  height: 1.2rem;
+  display: inline-block;
+  text-align: center;
+  border-radius: 100%;
+}
 .etc-currency-converter__result {
   font-size: 1.2rem;
   font-weight: bold;

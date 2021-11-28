@@ -5,5 +5,5 @@
 </script>
 
 <main class="etc-main">
-	<Converter rates={$ratesResult.values} />
+	<Converter rates={$ratesResult.values} error={$ratesResult.error}/>
 </main>
