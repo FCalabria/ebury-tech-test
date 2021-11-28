@@ -8,10 +8,10 @@
   let entryCurrency
   let convertCurrency
   $: convertedValue = (entryCurrency && convertCurrency && rates[entryCurrency] && rates[convertCurrency])
-    ? (entryValue * rates[entryCurrency] / rates[convertCurrency]).toFixed(2)
+    ? (entryValue * rates[convertCurrency] / rates[entryCurrency]).toFixed(2)
     : 0
   $: rate = (entryCurrency !== convertCurrency)
-    ? (rates[entryCurrency] / rates[convertCurrency]).toFixed(5)
+    ? (rates[convertCurrency] / rates[entryCurrency]).toFixed(5)
     : 0
 
 </script>
