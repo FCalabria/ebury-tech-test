@@ -4,9 +4,6 @@
 
 </script>
 
-<main>
+<main class="etc-main">
 	<Converter rates={$ratesResult.values} />
 </main>
-
-<style>
-</style>

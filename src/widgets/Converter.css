@@ -1,0 +1,47 @@
+.etc-currency-converter {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--etc-color-secondary);
+}
+.etc-currency-converter__title {
+  width: 100%;
+  text-align: center;
+}
+.etc-currency-converter__content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  padding: var(--etc-spacing-lg) var(--etc-spacing-md)
+}
+.etc-currency-converter__content>*:not(:last-child) {
+  margin-right: var(--etc-spacing-md);
+}
+.etc-currency-converter__result {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.etc-currency-converter {
+  .etc-number-input,
+  .etc-currency-select {
+    border: 2px solid var(--etc-color-main);
+    border-radius: var(--etc-border-radius);
+    background-color: var(--etc-color-gray-light);
+    font-family: inherit;
+    color: inherit;
+    padding: var(--etc-spacing-md) var(--etc-spacing-sm);
+    box-shadow: 3px 3px 5px var(--etc-color-gray-mid);
+  }
+  .etc-number-input:focus-visible,
+  .etc-currency-select:focus-visible {
+    outline-color: var(--etc-color-contrast);
+  }
+  .etc-currency-select {
+    cursor: pointer;
+  }
+  .etc-number-input {
+    width: 6rem;
+  }
+}

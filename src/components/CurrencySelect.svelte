@@ -4,7 +4,7 @@
 
   $: currencyValues = Object.keys(availableCurrencies);
 </script>
-<select bind:value={value}>
+<select bind:value={value} class="etc-currency-select">
   {#each currencyValues as currency}
     <option value={currency}>{currency}</option>
   {/each}

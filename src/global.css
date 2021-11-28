@@ -1,6 +1,22 @@
-
-html {
-	h1 {
-		color: red;
-	}
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+:root {
+	--etc-color-main: #185ADB;
+	--etc-color-secondary: #A7CCED;
+	--etc-color-contrast: #FFC947;
+	--etc-color-gray-light: #F3F3F3;
+	--etc-color-gray-mid: #9da0ab;
+	--etc-color-gray-dark: #40475c;
+	--etc-color-black: #0A1931;
+	--etc-spacing-sm: 4px;
+	--etc-spacing-md: 8px;
+	--etc-spacing-lg: 12px;
+	--etc-spacing-xl: 16px;
+	--etc-font-family: 'Lora', serif;
+	--etc-font-size: 1em;
+	--etc-border-radius: 4px;
+}
+.etc-main {
+	font-family: var(--etc-font-family);
+	font-size: var(--etc-font-size);
+	color: var(--etc-color-black);
 }
