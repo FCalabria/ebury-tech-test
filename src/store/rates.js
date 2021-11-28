@@ -11,7 +11,7 @@ function ratesFactory (valueGenerator) {
   }, {})
 }
 
-const REFRESH_INTERVAL = 1000 * 60 * 10 // one minute
+const REFRESH_INTERVAL = 1000 * 60 // one minute
 
 const ratesResult = readable({
   values: {},
@@ -20,7 +20,6 @@ const ratesResult = readable({
 }, (set) => {
   loadRates(set)
   const interval = setInterval(() => {
-    console.log('here')
     loadRates(set)
 	}, REFRESH_INTERVAL);
 
