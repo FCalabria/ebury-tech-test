@@ -19,10 +19,10 @@
   <h2 class="etc-currency-converter__title">Currency Conversor</h2>
   <div class="etc-currency-converter__content">
     <NumberInput step={0.01} bind:value={entryValue}/>
-    <CurrencySelect bind:value={entryCurrency}/>
+    <CurrencySelect bind:value={entryCurrency} extendedNames/>
     <span>=</span>
     <span class="etc-currency-converter__result">{ convertedValue }</span>
-    <CurrencySelect bind:value={convertCurrency}/>
+    <CurrencySelect bind:value={convertCurrency} extendedNames/>
     {#if rate}
       <div class="etc-currency-converter__rate-info" >
         <span>Conversion rate is <span class="etc-currency-converter__rate-value">{rate}</span></span>

@@ -5,7 +5,7 @@ import { availableCurrencies } from '../business/currencies';
 function ratesFactory (valueGenerator) {
   return Object.keys(availableCurrencies)
   .reduce((rates, currency)=> {
-    const key = availableCurrencies[currency]
+    const key = availableCurrencies[currency].abr
     rates[currency] = valueGenerator(key)
     return rates
   }, {})
