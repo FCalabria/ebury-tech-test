@@ -8,38 +8,6 @@ Ebury wants to add a currency converter widget in their apps and landing pages, 
 
 - Your preferred source
 
-The widget should:
-
-[ ] Poll the source for a set interval to get the latest rates
-
-[ ] Have an input to introduce the amount to exchange
-
-  [ ] Each input should be validated to only allow numbers with two decimals
-
-[ ] Have a selector to pick a different currency pair (at least GBP, EUR, USD)
-
-[ ] Show the exchange rate for the currency pair
-
-You can draw inspiration from other online currency converters, i.e. https://duckduckgo.com/?q=gbp+to+euro&t=h_&ia=currency or https://transferwise.com/gb/currency-converter/gbp-to-eur-rate?amount=1
-
-What are we looking for:
-
-[ ] The widget must work, and produce correct results
-
-[ ] The code and file structure should be readable, and of high quality
-
-[ ] Implement as many features from the widget as possible
-
-Expectations:
-
-[ ] Use HTML, CSS, and Javascript to complete the test. We expect the project to use a modular structure using a module bundler.
-
-[ ] Use some CSS methodology to organize your styles.
-
-[ ] Feel free to use vanilla Javascript or a framework, preferably with state management.
-
-[ ] As well as it shouldn't produce any error, test the application and include tests.
-
 ## Running the project
 
 A [Svelte](https://svelte.dev) project with [Tailwind CSS](https://tailwindcss.com)
@@ -69,4 +37,26 @@ npm run test
 
 ## Technical justification
 
+The idea was to produce a small widget that can be inserted in any website. This could be complemented with other widgets, working as a configurable library. That's also the reason why the rates are provided to Converter.svelte by the parent, so the widgets can be composed on App.svelte into bigger units.
+
+Of course for that to be done properly, you'd need to be able to configure said bigger unit before building, or create some kind of contract to be able to do it once compiled (but then all the code needs to be present, not only the selected widgets). Another option is to use App.svelte as some sort of demo page, but each widget loads the sttore by itself and is completly isolated and bundled by itself.
+
 ### Svelte
+
+Svelte has a really low size, and all of it JS is embeded in the code when compiled, removing the need to load a big library like React or Vue.
+
+It provides nice features and a faster development speed compared to plain JS, like DOM binding, global state management, conditional rendering, etc.
+
+That combination makes it ideal for small, injectable, widgets.
+
+### No css library
+
+I wanted a very low size styles, and giving flexibility to the client/consumer. For that reason I haven't bloated the styles with a external library.
+
+The use of CSS variables and not scoped styles allow easy customization. Prefixes in classes and variables have been provided to avoid collision with the client website. Also, I followed the BEM methodology, that gives clear class names and a low specificity (easier to override by the client)
+
+### Testing at the end of the process
+
+Not ideal, I know, but I'm not proficient with Svelte and this is my first time testing it. I knew that if I tested at the same time I developed, I'd have invested a lot of time on it, and decided to sacrifice coverage scoping the time invested in testing. The better way to scope it was to leave it to the end.
+
+Again, this is not how I usually work.
