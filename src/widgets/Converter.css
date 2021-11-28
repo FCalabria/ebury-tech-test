@@ -22,6 +22,17 @@
   font-size: 1.2rem;
   font-weight: bold;
 }
+.etc-currency-converter__rate-info {
+  width: 100%;
+  text-align: center;
+  margin-top: var(--etc-spacing-lg);
+  font-size: 1.1rem;
+}
+.etc-currency-converter__rate-value {
+  font-weight: bold;
+  color: var(--etc-color-contrast);
+  text-shadow: 1px 2px 3px var(--etc-color-gray-dark);
+}
 
 .etc-currency-converter {
   .etc-number-input,
