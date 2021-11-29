@@ -34,11 +34,12 @@ describe('Converter', () => {
     })
   })
   describe('Converting', () => {
-    let inSelect, outSelect, getByRole, getByText
+    let inSelect, outSelect, getByRole, getByText, queryByText
     beforeEach(() => {
       const result = render(Converter, {rates: mockRates})
       getByRole = result.getByRole
       getByText = result.getByText
+      queryByText = result.queryByText
       inSelect = getByRole('combobox', {name: 'entry currency'})
       outSelect = getByRole('combobox', {name: 'output currency'})
     })
@@ -56,6 +57,11 @@ describe('Converter', () => {
       const result = getByText('Conversion rate is')
       expect(result).toBeVisible()
       expect(result).toHaveTextContent('1.18182')
+    })
+    test('Should not show the conversion rate if only one currency is selected', async () => {
+      await userEvent.selectOptions(inSelect, ['GBP'])
+      const result = queryByText('Conversion rate is')
+      expect(result).toBeNull()
     })
   })
 })

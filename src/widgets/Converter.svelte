@@ -11,7 +11,7 @@
   $: convertedValue = (entryCurrency && convertCurrency && rates[entryCurrency] && rates[convertCurrency])
     ? (entryValue * rates[convertCurrency] / rates[entryCurrency]).toFixed(2)
     : 0
-  $: rate = (entryCurrency !== convertCurrency)
+  $: rate = (entryCurrency && convertCurrency && entryCurrency !== convertCurrency)
     ? (rates[convertCurrency] / rates[entryCurrency]).toFixed(5)
     : 0
 
