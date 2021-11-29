@@ -1,5 +1,7 @@
 # Ebury tech challenge
 
+![](demo_ebury.gif)
+
 Ebury wants to add a currency converter widget in their apps and landing pages, so our clients can quickly know the exchange rate between a pair of currencies. Implement the functionality of a currency converter using FX rates from one of these open resources:
 
 - http://exchangeratesapi.io/
