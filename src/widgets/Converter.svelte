@@ -25,11 +25,11 @@
         {#if error.message}<p>{error.message}</p>{/if}
       </div>
     {:else}
-      <NumberInput step={0.01} bind:value={entryValue}/>
-      <CurrencySelect bind:value={entryCurrency} extendedNames/>
+      <NumberInput step={0.01} bind:value={entryValue} label="amount" />
+      <CurrencySelect bind:value={entryCurrency} extendedNames label="entry currency"/>
       <span>=</span>
       <span class="etc-currency-converter__result">{ convertedValue }</span>
-      <CurrencySelect bind:value={convertCurrency} extendedNames/>
+      <CurrencySelect bind:value={convertCurrency} extendedNames label="output currency"/>
       {#if rate}
         <div class="etc-currency-converter__rate-info" >
           <span>Conversion rate is <span class="etc-currency-converter__rate-value">{rate}</span></span>
